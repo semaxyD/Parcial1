@@ -1,0 +1,36 @@
+/* Zona hacia adelante */
+zone "servicios.com" {
+    type master;
+    file "/etc/bind/db.servicios.com";
+};
+
+zone "otrodominio.com" {
+    type master;
+    file "/etc/bind/db.otrodominio.com";
+};
+
+/* Zona inversa */
+zone "50.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.192";
+    allow-transfer {192.168.50.4; };
+    also-notify {192.168.50.4; };
+};
+
+zone "miotrositio.com" {
+    type master;
+    file "/etc/bind/db.miotrositio.com";
+};
+
+/* Zona hacia adelante Maquina Maestro */
+zone "empresa.local.com" {
+    type master;
+    file "/etc/bind/db.empresa.local.com";
+    allow-transfer {192.168.50.4; }; //IP DE LA MV ESCLAVO
+    also-notify {192.168.50.4; }; //NOTIFICACION AL ESCLAVO DE CAMBIOS OCURRIDOS
+};
+
+zone "sebastian.com" {
+    type master;
+    file "/etc/bind/db.sebastian.com";
+};

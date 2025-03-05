@@ -1,0 +1,6 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@sebastian.com
+    ServerName sebastian.com
+    DocumentRoot /var/www/sebastian.com
+    ServerAlias parcial.sebastian.com
+</VirtualHost>
